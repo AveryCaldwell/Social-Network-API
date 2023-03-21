@@ -1,6 +1,4 @@
-# __Social Network API__
-Fakelook
-Fauxbook
+# __Social Network API: FakeLook 👥__
 
 ## __Table of contents__
 
