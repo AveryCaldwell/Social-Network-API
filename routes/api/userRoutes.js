@@ -66,4 +66,17 @@ router.delete('/users/:id/friends/:friendId', async (req, res) => {
     }
 });
 
+// Get all users with their friend counts
+router.get('/users', async (req, res) => {
+    try {
+        const users = await User.find()
+            .populate('thoughts')
+            .populate('friends');
+        const userArray = users.map((user) => user.toObject({ getters: true }));
+        res.status(200).json(userArray);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 module.exports = router;

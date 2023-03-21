@@ -43,6 +43,8 @@ GIVEN a
 
 - Please use npm i mongoose@6.9.2
 - You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM.
+- Run `npm run seed` to seed your database before testing with Insomnia.
+- Run `npm run dev` to have the server automatically restart whenever changes are saved.
 
 <br>
 

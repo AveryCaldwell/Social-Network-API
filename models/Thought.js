@@ -1,31 +1,26 @@
 const { Schema, model } = require('mongoose');
 
-// Schema to create a thought model
+// Schema to create a Thought model {thoughtText, createdAt, username, reactions }
 const thoughtSchema = new Schema(
     {
-        thoughtName: {
+        thoughtText: {
+            type: String,
+            required: true,
+            required: true,
+            minLength: 1,
+            maxLength: 280,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+        },
+        username: {
             type: String,
             required: true,
         },
-        inPerson: {
-            type: Boolean,
-            default: true,
-        },
-        startDate: {
-            type: Date,
-            default: Date.now(),
-        },
-        endDate: {
-            type: Date,
-            // Sets a default value of 12 weeks from now
-            default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
-        },
-        students: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Student',
-            },
-        ],
+        // nested documents created with the reactionSchema
+        reactions: [reactionSchema],
     },
     {
         toJSON: {
@@ -34,6 +29,35 @@ const thoughtSchema = new Schema(
         id: false,
     }
 );
+
+const reactionSchema = new mongoose.Schema(
+    {
+        reactionId: {
+            type: String,
+            required: true,
+            maxLength: 280,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+        },
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+    }
+);
+
+// Retrieves the length of the thought's reactions array field on query.
+thoughtSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length;
+});
 
 const thought = model('thought', thoughtSchema);
 
