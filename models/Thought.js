@@ -25,17 +25,23 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
+            getters: true,
         },
         id: false,
     }
 );
 
+// Reaction schema
 const reactionSchema = new mongoose.Schema(
     {
         reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+        },
+        reactionBody: {
             type: String,
             required: true,
-            maxLength: 280,
+            maxlength: 280,
         },
         username: {
             type: String,
@@ -51,6 +57,7 @@ const reactionSchema = new mongoose.Schema(
         toJSON: {
             getters: true,
         },
+        id: false,
     }
 );
 
