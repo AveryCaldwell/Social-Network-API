@@ -1,5 +1,6 @@
 # __Social Network API__
-
+Fakelook
+Fauxbook
 
 ## __Table of contents__
 
@@ -70,7 +71,7 @@ Github Repository:
 
 ###  Built with 🔨
 - HTML, CSS
-- JavaScript
+- JavaScript, Node.js
 - MongoDB, Mongoose, Express
 - GitHub
 - Insomnia
