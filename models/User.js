@@ -31,7 +31,6 @@ const userSchema = new Schema(
                 ref: 'User',
             },
         ],
-        reactions: [reactionSchema],
     },
     {
         toJSON: {

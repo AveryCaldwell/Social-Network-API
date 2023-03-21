@@ -1,5 +1,34 @@
 const { Schema, model } = require('mongoose');
 
+// Reaction schema - must be initialized first so Thought model can access
+const reactionSchema = new Schema(
+    {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+        },
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+        id: false,
+    }
+);
 // Schema to create a Thought model {thoughtText, createdAt, username, reactions }
 const thoughtSchema = new Schema(
     {
@@ -25,36 +54,6 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
-            getters: true,
-        },
-        id: false,
-    }
-);
-
-// Reaction schema
-const reactionSchema = new mongoose.Schema(
-    {
-        reactionId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-        reactionBody: {
-            type: String,
-            required: true,
-            maxlength: 280,
-        },
-        username: {
-            type: String,
-            required: true,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-        },
-    },
-    {
-        toJSON: {
             getters: true,
         },
         id: false,
