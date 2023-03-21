@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
 const Thought = require('./Thought');
 
 // Schema to create user model
@@ -42,7 +41,7 @@ const userSchema = new Schema(
     }
 );
 
-// Define a virtual property to retrieve the length of the user's friends array
+// Retrieve the length of the user's friends array
 userSchema
     .virtual('friendCount')
     //  Getter
@@ -50,6 +49,11 @@ userSchema
         return this.friends.length;
     });
 
+// Remove thoughts associated with username
+userSchema.pre('remove', function (next) {
+    Thought.remove({ username: this.username }).exec();
+    next();
+});
 //  Initialize User model
 const User = model('user', userSchema);
 
