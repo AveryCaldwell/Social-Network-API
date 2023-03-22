@@ -70,11 +70,10 @@ Github Repository:
 ##  __My process 💡__
 
 ###  Built with 🔨
-- HTML, CSS
 - JavaScript, Node.js
-- MongoDB, Mongoose, Express
-- GitHub
-- Insomnia
+- MongoDB, Mongoose, 
+- Express, Nodemon
+- GitHub, Insomnia
 
 <br>
 
