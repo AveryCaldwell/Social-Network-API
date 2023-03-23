@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-// const Thought = require('./Thought');
+const Thought = require('./Thought');
 
 // Schema to create user model
 const userSchema = new Schema(
@@ -54,6 +54,6 @@ userSchema.pre('remove', function (next) {
     next();
 });
 //  Initialize User model
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

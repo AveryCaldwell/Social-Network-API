@@ -90,3 +90,4 @@ const usersData = [
         reactions: [],
     },
 ];
+module.exports = { usersData, thoughtsData };
