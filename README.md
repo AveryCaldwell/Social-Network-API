@@ -49,6 +49,9 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
+<br> 
+
+
 ### __User Experience 👤__
 
 - Please use `npm i mongoose@6.9.2`
@@ -64,7 +67,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ​<br>
 
-![](./public/images/Screenshot.png)
+![](./assets/screenshot.png)
 ​
 ​<br>
 
