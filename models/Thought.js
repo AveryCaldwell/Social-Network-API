@@ -1,7 +1,8 @@
 //const { Schema, model } = require('mongoose');
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 // Reaction schema - must be initialized first so Thought model can access
-const reactionSchema = new mongoose.Schema(
+const reactionSchema = new Schema(
     {
         reactionId: {
             type: mongoose.ObjectId,
@@ -30,7 +31,7 @@ const reactionSchema = new mongoose.Schema(
     }
 );
 // Schema to create a Thought model {thoughtText, createdAt, username, reactions }
-const thoughtSchema = new mongoose.Schema(
+const thoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
@@ -65,6 +66,6 @@ thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
 
-const Thought = mongoose.model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;

@@ -1,5 +1,7 @@
-const { Schema, model } = require('mongoose');
-const Thought = require('./Thought');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
+
+const { Thought, thoughtSchema } = require('./Thought');
 
 // Schema to create user model
 const userSchema = new Schema(
@@ -17,24 +19,13 @@ const userSchema = new Schema(
             // mongoose email validation
             match: /^\S+@\S+\.\S+$/,
         },
-        // reference Thought model
-        thoughts: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Thought',
-            },
-        ],
-        // reference User model to generate friends array
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User',
-            },
-        ],
+
+        friends: [this],
     },
     {
         toJSON: {
             virtuals: true,
+            getters: true,
         },
         id: false,
     }
@@ -47,12 +38,12 @@ userSchema
     .get(function () {
         return this.friends.length;
     });
-
-// Remove thoughts associated with username
-userSchema.pre('remove', function (next) {
-    Thought.remove({ username: this.username }).exec();
-    next();
+userSchema.virtual('thoughts', {
+    ref: 'Thought',
+    localField: ['username'],
+    foreignField: ['username'],
 });
+
 //  Initialize User model
 const User = model('User', userSchema);
 

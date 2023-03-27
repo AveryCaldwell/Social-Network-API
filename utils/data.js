@@ -2,29 +2,29 @@
 const thoughtsData = [
     {
         thoughtText: 'Just had the best sandwich ever',
-        username: 'johndoe',
+        username: 'john_doe',
         createdAt: '2022-03-19T15:00:00Z',
         reactions: [
             {
                 reactionBody: 'Glad to hear it!',
-                username: 'janedoe',
+                username: 'jane_smith',
                 createdAt: '2022-03-19T16:00:00Z',
             },
             {
                 reactionBody: 'What kind of sandwich was it?',
-                username: 'bobsmith',
+                username: 'bob_jones',
                 createdAt: '2022-03-19T17:00:00Z',
             },
         ],
     },
     {
         thoughtText: 'I love hiking in the mountains',
-        username: 'janedoe',
+        username: 'jane_smith',
         createdAt: '2022-03-20T10:00:00Z',
         reactions: [
             {
                 reactionBody: 'Me too! Which mountains have you hiked?',
-                username: 'johndoe',
+                username: 'john_doe',
                 createdAt: '2022-03-20T11:00:00Z',
             },
         ],
@@ -71,21 +71,21 @@ const usersData = [
     {
         username: 'john_doe',
         email: 'john.doe@example.com',
-        thoughts: [],
+        //  thoughts: [],
         friends: [],
         reactions: [],
     },
     {
         username: 'jane_smith',
         email: 'jane.smith@example.com',
-        thoughts: [],
+        //   thoughts: [],
         friends: [],
         reactions: [],
     },
     {
         username: 'bob_jones',
         email: 'bob.jones@example.com',
-        thoughts: [],
+        //  thoughts: [],
         friends: [],
         reactions: [],
     },
