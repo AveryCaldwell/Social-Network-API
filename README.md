@@ -69,8 +69,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ​<br>
 
 ### __Links 🔗__
-TODO: UPDATE LINK
-- Walkthrough Video: 
+- Walkthrough Video: [https://drive.google.com/file/d/1fB6Nghal_XhOok6fvZxC6USjqnmgPmwc/view](https://drive.google.com/file/d/1fB6Nghal_XhOok6fvZxC6USjqnmgPmwc/view)
 - Github Repository: [https://github.com/AveryCaldwell/Social-Network-API](https://github.com/AveryCaldwell/Social-Network-API) 
 
 <br>
